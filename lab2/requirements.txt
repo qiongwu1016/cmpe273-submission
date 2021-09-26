@@ -1,7 +1,0 @@
-apispec
-marshmallow
-flask
-apispec_fromfile
-apispec_webframeworks
-typing_extensions
-flasgger
