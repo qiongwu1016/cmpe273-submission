@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+message Wal {
+    string value = 1;
+
+}
+
+service LogicCopy {
+    rpc logicCopy(Wal) returns(Wal) {}
+}

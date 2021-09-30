@@ -1,0 +1,64 @@
+{
+	"change": [
+		{
+			"kind": "insert",
+			"schema": "public",
+			"table": "students",
+			"columnnames": ["id", "first_name", "last_name", "sjsu_id", "email", "create_timestamp", "update_timestamp"],
+			"columntypes": ["integer", "character varying(50)", "character varying(50)", "character varying(50)", "character varying(255)", "timestamp without time zone", "timestamp without time zone"],
+			"columnvalues": [450, "Zusio", "Zap", "ABC333341", "zus@mao.com", "2021-09-29 19:58:39.517448", "2021-09-29 19:58:39.517448"]
+		}
+		,{
+			"kind": "insert",
+			"schema": "public",
+			"table": "students",
+			"columnnames": ["id", "first_name", "last_name", "sjsu_id", "email", "create_timestamp", "update_timestamp"],
+			"columntypes": ["integer", "character varying(50)", "character varying(50)", "character varying(50)", "character varying(255)", "timestamp without time zone", "timestamp without time zone"],
+			"columnvalues": [451, "Puee", "Saee", "ASS330554", "puee@mao.com", "2021-09-29 19:58:39.517448", "2021-09-29 19:58:39.517448"]
+		}
+		,{
+			"kind": "delete",
+			"schema": "public",
+			"table": "students",
+			"oldkeys": {
+				"keynames": ["id"],
+				"keytypes": ["integer"],
+				"keyvalues": [440]
+			}
+		}
+	]
+}
+{
+	"change": [
+		{
+			"kind": "update",
+			"schema": "public",
+			"table": "students",
+			"columnnames": ["id", "first_name", "last_name", "sjsu_id", "email", "create_timestamp", "update_timestamp"],
+			"columntypes": ["integer", "character varying(50)", "character varying(50)", "character varying(50)", "character varying(255)", "timestamp without time zone", "timestamp without time zone"],
+			"columnvalues": [308, "Jack", "Chen", "abcS377966", "morning@gmail.com", "2021-09-29 09:04:58.050892", "2021-09-29 09:04:58.050892"],
+			"oldkeys": {
+				"keynames": ["id"],
+				"keytypes": ["integer"],
+				"keyvalues": [308]
+			}
+		}
+	]
+}
+{
+	"change": [
+		{
+			"kind": "update",
+			"schema": "public",
+			"table": "students",
+			"columnnames": ["id", "first_name", "last_name", "sjsu_id", "email", "create_timestamp", "update_timestamp"],
+			"columntypes": ["integer", "character varying(50)", "character varying(50)", "character varying(50)", "character varying(255)", "timestamp without time zone", "timestamp without time zone"],
+			"columnvalues": [450, "Zusio", "Zap", "ABC333341", "morning@gmail.com", "2021-09-29 19:58:39.517448", "2021-09-29 19:58:39.517448"],
+			"oldkeys": {
+				"keynames": ["id"],
+				"keytypes": ["integer"],
+				"keyvalues": [450]
+			}
+		}
+	]
+}
