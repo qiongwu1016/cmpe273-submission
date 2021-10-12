@@ -16,7 +16,7 @@ request body example:
 
 "long_url": "https://www.taobao.com/",
 
-"domain": "bit.ly",
+"domain": "default",
 
 "group_guid": "Ba1bc23dE4F"
 
