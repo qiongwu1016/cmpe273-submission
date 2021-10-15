@@ -1,9 +1,5 @@
 from flask import Flask, jsonify, redirect, request
 import json
-from markupsafe import escape
-import hashlib
-from marshmallow import Schema, fields, pprint
-from datetime import datetime, date, timedelta
 import random
 
 
@@ -13,29 +9,18 @@ DOMAIN = "127.0.0.1:5000/"
 #Store all created bitlink data in memory: mapping_data
 user_data = []
 
-class UserSchema(Schema):
-    id = fields.Str()
-    name = fields.Str()
-    email = fields.Str()
-    sweets = fields.List(fields.Str())
-    followers = fields.List(fields.Str())
-    
-
 
 #Create new user
 @app.route('/users', methods=['POST'])
 def create_new_user():
     request_data = request.get_json()
-    schema = UserSchema()
-    result = schema.load(request_data)
-    _id = random.randint(0, 500)
+    _id = str(random.randint(0, 500))
+    _name = request_data['name']
+    _email = request_data['email']
     _tweets = []
     _followers = []
-    result['tweeets'] = _tweets
-    result['followers'] = _followers
-    result['id'] = _id
+    result = dict(id = _id, name = _name, email = _email, tweets = _tweets, followers = _followers)
     user_data.append(result)
-    print(user_data)
     return result
 
 @app.route('/users/<string:user_id>/followers/<string:follower_id>', methods = ['PATCH'])
@@ -44,15 +29,13 @@ def create_new_follower(user_id, follower_id):
     for i in range(len(user_data)):
         print(user_data[i]['id'])
         if user_data[i]["id"] == user_id:
-            print("aaaa")
-            follower_list = user_data[i]['followers']
-            follower_list.append(follower_id)
-            print(follower_list)
+            user_data[i]["followers"].append(follower_id)
+            break
             
     
     for user in user_data:
         print(user)
-    return "follower_" + follower_id + " inserted to user:" + user_id
+    return user
 
 
 @app.route('/users/<string:user_id>/tweets', methods = ['POST'])
