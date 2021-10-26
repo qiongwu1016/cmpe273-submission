@@ -1,0 +1,14 @@
+#Mutate a new Student
+curl 'http://localhost:5000/graphql' -H 'Accept-Encoding: gzip, deflate, br' -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'Connection: keep-alive' -H 'DNT: 1' -H 'Origin: http://localhost:5000' --data-binary '{"query":"mutation {\n  create_student(name:\"Lei\") {\n    student_id,\n    name\n  }\n}"}' --compressed
+
+#Mutate a new Class
+curl 'http://localhost:5000/graphql' -H 'Accept-Encoding: gzip, deflate, br' -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'Connection: keep-alive' -H 'DNT: 1' -H 'Origin: http://localhost:5000' --data-binary '{"query":"mutation {\n  create_class(course_name: \"art\"){\n    class_id,\n    course_name,\n    students{\n      name,\n      student_id\n    }\n  }\n}"}' --compressed
+
+#Query Student
+curl 'http://localhost:5000/graphql' -H 'Accept-Encoding: gzip, deflate, br' -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'Connection: keep-alive' -H 'DNT: 1' -H 'Origin: http://localhost:5000' --data-binary '{"query":"{get_student(student_id:2000000){\n  student_id,\n  name\n}\n}"}' --compressed
+
+#Query Class
+curl 'http://localhost:5000/graphql' -H 'Accept-Encoding: gzip, deflate, br' -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'Connection: keep-alive' -H 'DNT: 1' -H 'Origin: http://localhost:5000' --data-binary '{"query":"{\n  get_class(class_id:340){\n  class_id,\n  course_name,\n    students{\n      name,\n      student_id\n    }\n\t}\n}"}' --compressed
+
+#Add students to a class
+curl 'http://localhost:5000/graphql' -H 'Accept-Encoding: gzip, deflate, br' -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'Connection: keep-alive' -H 'DNT: 1' -H 'Origin: http://localhost:5000' --data-binary '{"query":"mutation{\n  update_stu_class(class_id:500, student_id:2000000){\n    course_name,\n    class_id,\n    students{\n      name,\n      student_id\n    }\n  }\n}"}' --compressed
