@@ -4,14 +4,9 @@ type Query{
 }
 
 type Mutation{
-    create_student(student_id : ID!,
-    first_name : String,
-    last_name : String,
-    course_name : String) : [student]
+    create_student(name : String) : [student]
 
-    create_class(class_id: Int!,
-    course_name : String,
-    student_id : Int): [classes]
+    create_class(course_name : String): [classes]
 
     update_stu_class(
         class_id: Int!
@@ -22,9 +17,7 @@ type Mutation{
 
 type student{
     student_id : ID!
-    first_name : String
-    last_name : String
-    course_name : String
+    name : String
 }
 
 type classes{

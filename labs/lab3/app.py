@@ -3,6 +3,7 @@ from ariadne.constants import PLAYGROUND_HTML
 from ariadne import QueryType, graphql_sync, make_executable_schema,load_schema_from_path, ObjectType
 import resolver as r
 
+
 type_defs = load_schema_from_path('schema.py')
 query = QueryType()
 mutation = ObjectType('Mutation')
@@ -43,3 +44,6 @@ def graphql_server():
     )
     status_code = 200 if success else 400
     return jsonify(result), status_code
+
+if __name__ == "__main__":
+    app.run()
