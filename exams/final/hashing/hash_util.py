@@ -88,7 +88,7 @@ class HRWHash(HashingInterface):
         highest_weight = 0
 
         for node in self.nodes:
-            seed = node.host + ":" + str(node.port)
+            seed = node.host
             base_weight = node.hrw_weight
             weight = self.compute_weighted_score(key, seed, base_weight)
             if weight > highest_weight:
