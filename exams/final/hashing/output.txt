@@ -1,0 +1,14 @@
+#### Naive default hashing ####
+Alex has total keys = 35 (35%)
+Bob has total keys = 37 (37%)
+Cody has total keys = 28 (28%)
+
+#### Rendezvous hashing (HRW) ####
+Alex has total keys = 35 (35%)
+Bob has total keys = 29 (29%)
+Cody has total keys = 36 (36%)
+
+#### Consistent hashing ####
+Alex has total keys = 73 (73%)
+Bob has total keys = 10 (10%)
+Cody has total keys = 17 (17%)
